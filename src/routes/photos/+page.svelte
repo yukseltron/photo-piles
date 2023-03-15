@@ -4,7 +4,6 @@
 
 <h1>Photos</h1>
 
-<h2>Places</h2>
 <ul>
 	{#each data.summaries as { slug, title, }}
 		<li><a href="/photos/{slug}">{title}</a></li>
