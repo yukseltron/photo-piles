@@ -1,0 +1,54 @@
+:root {
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  
+    color-scheme: dark;
+    color: rgb(69,69,69);
+    background-color: white;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  
+  main {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 200px;
+  }
+  
+  h1, h2 {
+    font-weight: 100;
+  }
+
+  
+  a {
+    color: rgb(111, 111, 251);
+    text-decoration: none;
+    width: auto;
+    margin: 10px 0px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:focus {
+    outline: 2px solid rgb(111, 251, 144);
+    outline-offset: 5px;
+    background-color: azure;
+  }
+  
+  img {
+    width: 100%;
+    filter: contrast(120%)
+  }
+  
