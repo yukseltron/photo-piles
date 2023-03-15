@@ -14,4 +14,10 @@
         display: flex;
         justify-content: space-between;
     }
+
+    .content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 </style>
