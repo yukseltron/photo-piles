@@ -6,7 +6,7 @@
 <h2>{data.post.subtitle}</h2>
 <div>
 	{#each data.post.content as photo, i}
-		<img src={photo} alt="" />
+		<img class={photo.width == 'full' ? 'full' : 'half'} src={photo.img} alt="" />
 	{/each}
 </div>
 
@@ -17,9 +17,16 @@
 	}
 
 	img {
-		width: 50%;
 		object-fit: cover;
 		justify-content: stretch;
+	}
+
+	.full {
+		width: 100%;
+	}
+
+	.half {
+		width: 50%;
 	}
 
 	div {

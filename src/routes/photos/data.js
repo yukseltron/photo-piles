@@ -56,88 +56,238 @@ import nyc10 from '$lib/assets/nyc/10.jpeg';
 
 export const posts = [
 	{
-		slug: 'Tokyo',
+		slug: 'tokyo',
 		title: 'Tokyo',
 		subtitle: 'Japan',
 		content: [
-			tokyo1,
-			tokyo2,
-			tokyo3,
-			tokyo4,
-			tokyo5,
-			tokyo6,
-			tokyo7,
-			tokyo8,
-			tokyo9,
-			tokyo10,
+			{
+				img: tokyo1,
+				width: 'half',
+			},
+			{
+				img: tokyo2,
+				width: 'half',
+			},
+			{
+				img: tokyo3,
+				width: 'full',
+			},
+			{
+				img: tokyo4,
+				width: 'full',
+			},
+			{
+				img: tokyo5,
+				width: 'full',
+			},
+			{
+				img: tokyo6,
+				width: 'full',
+			},
+			{
+				img: tokyo7,
+				width: 'half',
+			},
+			{
+				img: tokyo8,
+				width: 'half',
+			},
+			{
+				img: tokyo9,
+				width: 'half',
+			},
+			{
+				img: tokyo10,
+				width: 'half',
+			},
 		]
 	},
 	{
-		slug: 'New York City',
+		slug: 'new york city',
 		title: 'New York City',
 		subtitle: 'USA',
 		content: [
-			nyc1,
-			nyc2,
-			nyc3,
-			nyc4,
-			nyc5,
-			nyc6,
-			nyc7,
-			nyc8,
-			nyc9,
-			nyc10,
+			{
+				img: nyc1,
+				width: 'full',
+			},
+			{
+				img: nyc2,
+				width: 'half',
+			},
+			{
+				img: nyc3,
+				width: 'half',
+			},
+			{
+				img: nyc4,
+				width: 'full',
+			},
+			{
+				img: nyc5,
+				width: 'half',
+			},
+			{
+				img: nyc6,
+				width: 'half',
+			},
+			{
+				img: nyc7,
+				width: 'half',
+			},
+			{
+				img: nyc8,
+				width: 'half',
+			},
+			{
+				img: nyc9,
+				width: 'half',
+			},
+			{
+				img: nyc10,
+				width: 'half',
+			},
 		]
 	},
 	{
-		slug: 'Los Angeles',
+		slug: 'los angeles',
 		title: 'Los Angeles',
 		subtitle: 'USA',
 		content: [
-			losangeles1,
-			losangeles2,
-			losangeles3,
-			losangeles4,
-			losangeles5,
-			losangeles6,
-			losangeles7,
-			losangeles8,
-			losangeles9,
-			losangeles10,
+			{
+				img: losangeles2,
+				width: 'full',
+			},
+			{
+				img: losangeles1,
+				width: 'half',
+			},
+			{
+				img: losangeles3,
+				width: 'half',
+			},
+			{
+				img: losangeles4,
+				width: 'half',
+			},
+			{
+				img: losangeles9,
+				width: 'half',
+			},
+			{
+				img: losangeles5,
+				width: 'full',
+			},
+			{
+				img: losangeles6,
+				width: 'full',
+			},
+			{
+				img: losangeles7,
+				width: 'half',
+			},
+			{
+				img: losangeles10,
+				width: 'half',
+			},
+			{
+				img: losangeles8,
+				width: 'full',
+			},
 		]
 	},
 	{
-		slug: 'Seattle',
+		slug: 'seattle',
 		title: 'Seattle',
 		subtitle: 'USA',
 		content: [
-			seattle1,
-			seattle2,
-			seattle3,
-			seattle4,
-			seattle5,
-			seattle6,
-			seattle7,
-			seattle8,
-			seattle9,
-			seattle10,
+			{
+				img: seattle1,
+				width: 'half',
+			},
+			{
+				img: seattle3,
+				width: 'half',
+			},
+			{
+				img: seattle2,
+				width: 'full',
+			},
+			{
+				img: seattle4,
+				width: 'half',
+			},
+			{
+				img: seattle5,
+				width: 'half',
+			},
+			{
+				img: seattle6,
+				width: 'half',
+			},
+			{
+				img: seattle7,
+				width: 'half',
+			},
+			{
+				img: seattle8,
+				width: 'half',
+			},
+			{
+				img: seattle10,
+				width: 'half',
+			},
+			{
+				img: seattle9,
+				width: 'full',
+			},
 		]
 	},
 	{
-		slug: 'Istanbul',
+		slug: 'istanbul',
 		title: 'Istanbul',
 		subtitle: 'Turkey',
 		content: [
-			istanbul1,
-			istanbul2,
-			istanbul3,
-			istanbul4,
-			istanbul5,
-			istanbul6,
-			istanbul7,
-			istanbul8,
-			istanbul9,
-			istanbul10,
+			{
+				img: istanbul1,
+				width: 'full',
+			},
+			{
+				img: istanbul2,
+				width: 'half',
+			},
+			{
+				img: istanbul3,
+				width: 'half',
+			},
+			{
+				img: istanbul4,
+				width: 'half',
+			},
+			{
+				img: istanbul9,
+				width: 'half',
+			},
+			{
+				img: istanbul5,
+				width: 'half',
+			},
+			{
+				img: istanbul6,
+				width: 'half',
+			},
+			{
+				img: istanbul7,
+				width: 'half',
+			},
+			{
+				img: istanbul10,
+				width: 'half',
+			},
+			{
+				img: istanbul8,
+				width: 'full',
+			},
 		]
 	},
 ];

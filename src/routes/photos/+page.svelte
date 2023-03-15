@@ -4,9 +4,10 @@
 
 <h1>Photos</h1>
 
+<h2>Places</h2>
 <ul>
 	{#each data.summaries as { slug, title, }}
-		<li><a href="/photos/{slug}">{slug}</a></li>
+		<li><a href="/photos/{slug}">{title}</a></li>
 	{/each}
 </ul>
 
@@ -14,5 +15,10 @@
 	ul {
 		padding: 0;
 		list-style-type: none;
+		margin: 0;
+	}
+
+	h2 {
+		margin-bottom: 10px;
 	}
 </style>
