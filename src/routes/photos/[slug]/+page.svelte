@@ -35,14 +35,14 @@
 		margin-bottom: 200px;
 	}
 
-	@media only screen and (max-width: 800px) {
-		img {
+	@media only screen and (max-width: 600px) {
+		.half {
 			width: 100%;
 		}
 	}
 
-	@media only screen and (min-width: 1900px) {
-		img {
+	@media only screen and (min-width: 2000px) {
+		.half {
 			width: 100%;
 		}
 	}
