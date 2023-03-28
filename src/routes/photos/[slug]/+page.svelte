@@ -23,10 +23,17 @@
 
 	.full {
 		width: 100%;
+		transition: width 2s;
 	}
 
 	.half {
 		width: 50%;
+		transition: width 2s;
+	}
+	img {
+		animation-name: grow;
+		animation-duration: 4s;
+  		animation-iteration-count: 1;
 	}
 
 	div {
@@ -44,6 +51,21 @@
 	@media only screen and (min-width: 2000px) {
 		.half {
 			width: 100%;
+		}
+	}
+
+	@keyframes grow {
+		0%  {
+				width: 10%;
+			}
+		25%  {
+				width: 20%;
+		}
+		75%  {
+				width: 38%;
+			}
+		100%  {
+				width: 50%;
 		}
 	}
 </style>

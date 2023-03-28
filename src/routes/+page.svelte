@@ -15,13 +15,17 @@
         return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
     }
 
-    const num = getRandomInt(1,8);
+    let num = getRandomInt(1,8);
+
+	function handleMouseOver(e) {
+		num = getRandomInt(1,8);
+	}
 
 </script>
 
 <h1>A Photo Garden</h1>
-<div class="handler">
-    <img alt="The project logo" src={images[num]} />
+<div class="handler" on:mouseover={handleMouseOver}>
+    <img alt="The project logo" src={images[num]}/>
 </div>
 
 <style>
@@ -34,4 +38,5 @@
     .handler img {
         object-fit: contain;
     }
+
 </style>
