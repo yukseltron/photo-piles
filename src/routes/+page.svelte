@@ -18,9 +18,12 @@
     let num = getRandomInt(1,8);
 
 	function handleMouseOver(e) {
-		num = getRandomInt(1,8);
+		let newNum = getRandomInt(1,8);
+        num = newNum === num 
+            ? (num + 1 > 7 ? num - 1 : num + 1)
+            : newNum;
+        console.log(newNum, num);
 	}
-
 </script>
 
 <h1>A Photo Garden</h1>

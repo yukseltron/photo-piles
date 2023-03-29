@@ -13,6 +13,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  cursor: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,7 +63,8 @@ a:focus {
 
 img {
   width: 100%;
-  filter: contrast(120%)
+  filter: contrast(120%);
+  cursor: crosshair;
 }
 
 footer {
