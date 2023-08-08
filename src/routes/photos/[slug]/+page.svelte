@@ -1,49 +1,27 @@
 <script>
+	import PhotoCard from '$lib/PhotoCard.svelte';
+
 	export let data;
+	let currentIndex = 250;
+
+	async function renderNextComponent() {
+		currentIndex += 250;
+		await new Promise(resolve => setTimeout(resolve, currentIndex)); // Wait for 1 second
+  	}
 </script>
 
 <h1>{data.post.title}</h1>
 <h2>{data.post.subtitle}</h2>
 <div>
 	{#each data.post.content as photo, i}
-		<img class={photo.width == 'full' ? 'full' : 'half'} src={photo.img} alt="" />
+		{#await renderNextComponent()}
+		•
+		{:then}
+			<PhotoCard>
+				<div style="pointer-events: none;">
+					<img src={photo.img} alt="Photo" />
+				</div>
+			</PhotoCard>
+		{/await}
 	{/each}
 </div>
-
-
-<style>
-	h1 {
-		text-transform: capitalize !important;
-	}
-
-	img {
-		object-fit: cover;
-		justify-content: stretch;
-	}
-
-	.full {
-		width: 100%;
-	}
-
-	.half {
-		width: 50%;
-	}
-
-	div {
-		display: flex;
-		flex-wrap: wrap;
-		margin-bottom: 200px;
-	}
-
-	@media only screen and (max-width: 600px) {
-		.half {
-			width: 100%;
-		}
-	}
-
-	@media only screen and (min-width: 2000px) {
-		.half {
-			width: 100%;
-		}
-	}
-</style>

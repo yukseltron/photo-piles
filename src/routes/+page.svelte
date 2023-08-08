@@ -19,7 +19,7 @@
 
 </script>
 
-<h1>A Photo Garden</h1>
+<h1>A Photo Book</h1>
 <div class="handler">
     <img alt="The project logo" src={images[num]} />
 </div>
