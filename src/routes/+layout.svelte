@@ -3,11 +3,14 @@
 </script>
 <nav>
 	<a href="/">Home</a>
-	<a href="/photos">Photos</a>
     <a href="/about">About</a>
 </nav>
 
 <slot />
+
+<footer>
+    <a rel="external" href="https://www.yooksel.com/">@yooksel</a>
+</footer>
 
 <style>
     nav {
@@ -15,9 +18,9 @@
         justify-content: space-between;
     }
 
-    .content {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
+    footer {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
     }
 </style>

@@ -18,16 +18,17 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground: white;
-    --background: rgb(69,69,69);
+    --background: rgb(30, 30, 30);
   }
 }
 
 body {
-  min-height: 100vh;
+  min-height: 98vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 2rem;
+  overflow-x: hidden;
 }
 
 main {
@@ -43,28 +44,34 @@ h1, h2 {
 
 
 a {
-  color: rgb(111, 111, 251);
+  color: var(--foreground);
   text-decoration: none;
   width: auto;
   margin: 10px 0px;
+  z-index: 9999;
 }
 
 a:hover {
+  color: rgb(111, 111, 251);
   text-decoration: underline;
 }
 
 a:focus {
+  color: rgb(111, 111, 251);
   outline: 2px solid rgb(111, 251, 144);
   outline-offset: 5px;
   background-color: azure;
+  mix-blend-mode: normal;
 }
 
 img {
   width: 100%;
-  filter: contrast(120%)
+}
+img::selection {
+  background-color: transparent;
 }
 
 footer {
   font-size: 1rem;
-  margin-top: auto;
+  z-index: 9999;
 }
