@@ -28,7 +28,7 @@ body {
   flex-direction: column;
   align-items: center;
   font-size: 2rem;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 main {
@@ -42,7 +42,6 @@ h1, h2 {
   line-height: 4rem;
 }
 
-
 a {
   color: var(--foreground);
   text-decoration: none;
@@ -54,14 +53,16 @@ a {
 a:hover {
   color: rgb(111, 111, 251);
   text-decoration: underline;
+  transition: all 0.2s ease-in-out;
 }
 
 a:focus {
-  color: rgb(111, 111, 251);
+  color: rgb(111, 111, 251) !important;
   outline: 2px solid rgb(111, 251, 144);
   outline-offset: 5px;
   background-color: azure;
   mix-blend-mode: normal;
+  transition: all 0.2s ease-in-out;
 }
 
 img {

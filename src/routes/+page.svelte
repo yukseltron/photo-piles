@@ -21,25 +21,28 @@
 
 </script>
 
-<h1>A Photo Book</h1>
+<br/>
+<br/>
 <div class="handler" 
     style="
         background-image: url({images[num]});
     "
 >
+</div>
 {#each data.summaries as { slug, title, }}
     <div>
         <a href="/{slug}">{title}</a>
     </div>
 {/each}
-</div>
 
 <style>
     .handler {
-        width: 900px;
-        max-height: 500px;
         position: absolute;
-        background-size: cover;
+        width: 900px;
+        height: 500px;
+        background-position: -10% 75%;
+        background-repeat: no-repeat;
+        z-index: -500;
     }
     ul {
 		padding: 0;
@@ -48,8 +51,9 @@
 	}
 
     a {
-        font-size: 4rem;
+        font-size: 3rem;
         color: var(--foreground);
         mix-blend-mode: difference;
+        font-weight: 200;
     }
 </style>
