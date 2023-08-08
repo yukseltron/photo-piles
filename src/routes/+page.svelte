@@ -8,6 +8,8 @@
     import img7 from '$lib/assets/losangeles/2.jpeg';
     import img8 from '$lib/assets/losangeles/6.jpeg';
 
+    export let data;
+
     const images = [img1, img2, img3, img4, img5, img6, img7, img8]
     function getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -20,18 +22,34 @@
 </script>
 
 <h1>A Photo Book</h1>
-<div class="handler">
-    <img alt="The project logo" src={images[num]} />
+<div class="handler" 
+    style="
+        background-image: url({images[num]});
+    "
+>
+{#each data.summaries as { slug, title, }}
+    <div>
+        <a href="/{slug}">{title}</a>
+    </div>
+{/each}
 </div>
 
 <style>
     .handler {
-        width: 100%;
-        height: 500px;
-        overflow: hidden;
+        width: 900px;
+        max-height: 500px;
+        position: absolute;
+        background-size: cover;
     }
+    ul {
+		padding: 0;
+		list-style-type: none;
+		margin: 0;
+	}
 
-    .handler img {
-        object-fit: contain;
+    a {
+        font-size: 4rem;
+        color: var(--foreground);
+        mix-blend-mode: difference;
     }
 </style>
