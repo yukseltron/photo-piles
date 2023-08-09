@@ -12,10 +12,17 @@
     let zIndex = 1;
     let offsetX = 0;
     let offsetY = 0;
+    
+    // Double-tap handling
+    let lastTapTime = 0;
+    let tapTimeout;
+    let isExpanded = false;
+    let originalWidth;
+    let originalHeight;
 
     onMount(() => {
-        x = Math.random() * (window.innerWidth - 400); // Adjusted to prevent overflowing
-        y = Math.random() * (window.innerHeight - 400); // Adjusted to prevent overflowing
+        x = Math.random() * (window.innerWidth - 400);
+        y = Math.random() * (window.innerHeight - 400);
     });
 
     function handleMouseDown(event) {
@@ -28,10 +35,10 @@
 
     function handleMouseMove(event) {
         if (isDragging) {
-        x = event.clientX - offsetX;
-        y = event.clientY - offsetY;
+            x = event.clientX - offsetX;
+            y = event.clientY - offsetY;
         }
-        const closerValue = value => (Math.abs(value - (0)) < Math.abs(value - 360)) ? 0 : 360;
+        const closerValue = value => (Math.abs(value - 0) < Math.abs(value - 360)) ? 0 : 360;
 
         rotation = closerValue(deg);
     }
@@ -44,6 +51,50 @@
         isDragging = false;
         const randomNum = (Math.random() * 90) - 45;
         rotation += randomNum;
+    }
+    
+    function handleTouchStart(event) {
+        if (event.touches.length === 1) {
+            handleMouseDown(event.touches[0]);
+        }
+    }
+
+    function handleTouchMove(event) {
+        if (event.touches.length === 1) {
+            handleMouseMove(event.touches[0]);
+        }
+    }
+
+    function handleTouchEnd() {
+        handleMouseUp();
+    }
+    
+    function handleTap() {
+        console.log('click');
+        const now = Date.now();
+        if (now - lastTapTime < 300) {
+            clearTimeout(tapTimeout);
+
+            if (!isExpanded) {
+                isExpanded = true;
+                originalWidth = width;
+                originalHeight = height;
+                width = "800px";
+                height = "900px";
+                // Center the image
+                x = (window.innerWidth - parseInt(width)) / 2;
+                y = (window.innerHeight - parseInt(height)) / 2;
+            } else {
+                isExpanded = false;
+                width = originalWidth;
+                height = originalHeight;
+            }
+        } else {
+            lastTapTime = now;
+            tapTimeout = setTimeout(() => {
+                clearTimeout(tapTimeout);
+            }, 300);
+        }
     }
 </script>
   
@@ -64,6 +115,10 @@
     on:mousemove={handleMouseMove}
     on:mouseup={handleMouseUp}
     on:mouseleave={handleMouseLeave}
+    on:touchstart={handleTouchStart}
+    on:touchmove={handleTouchMove}
+    on:touchend={handleTouchEnd}
+    on:click={handleTap}
     >
     <slot></slot>
 </div>

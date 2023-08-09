@@ -18,7 +18,7 @@
 		•
 		{:then}
 			<PhotoCard>
-				<div style="pointer-events: none;">
+				<div style="pointer-events: none; width: 100%; height: 100%;">
 					<img src={photo.img} alt="Photo" />
 				</div>
 			</PhotoCard>
