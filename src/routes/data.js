@@ -62,42 +62,52 @@ export const posts = [
 		content: [
 			{
 				img: tokyo1,
+				alt: "An apartment staircase with square tiling and yellow beams. A tree branch can be seen in the bottom-right corner.",
 				width: 'half',
 			},
 			{
 				img: tokyo2,
+				alt: "A turquoise metallic spiral staircase. Rain drops can be seen dripping down the railing.",
 				width: 'half',
 			},
 			{
 				img: tokyo3,
+				alt: "A rusting light pole with large convex mirrors on either side. A tree and large green fencing rests behind it.",
 				width: 'full',
 			},
 			{
 				img: tokyo4,
+				alt: "",
 				width: 'full',
 			},
 			{
 				img: tokyo5,
+				alt: "",
 				width: 'full',
 			},
 			{
 				img: tokyo6,
+				alt: "",
 				width: 'full',
 			},
 			{
 				img: tokyo7,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: tokyo8,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: tokyo9,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: tokyo10,
+				alt: "",
 				width: 'half',
 			},
 		]
@@ -109,42 +119,52 @@ export const posts = [
 		content: [
 			{
 				img: nyc1,
+				alt: "",
 				width: 'full',
 			},
 			{
 				img: nyc2,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: nyc3,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: nyc4,
+				alt: "",
 				width: 'full',
 			},
 			{
 				img: nyc5,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: nyc6,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: nyc7,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: nyc8,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: nyc9,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: nyc10,
+				alt: "",
 				width: 'half',
 			},
 		]
@@ -156,42 +176,52 @@ export const posts = [
 		content: [
 			{
 				img: losangeles2,
+				alt: "",
 				width: 'full',
 			},
 			{
 				img: losangeles1,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: losangeles3,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: losangeles4,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: losangeles9,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: losangeles5,
+				alt: "",
 				width: 'full',
 			},
 			{
 				img: losangeles6,
+				alt: "",
 				width: 'full',
 			},
 			{
 				img: losangeles7,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: losangeles10,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: losangeles8,
+				alt: "",
 				width: 'full',
 			},
 		]
@@ -203,42 +233,52 @@ export const posts = [
 		content: [
 			{
 				img: seattle1,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: seattle3,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: seattle2,
+				alt: "",
 				width: 'full',
 			},
 			{
 				img: seattle4,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: seattle5,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: seattle6,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: seattle7,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: seattle8,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: seattle10,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: seattle9,
+				alt: "",
 				width: 'full',
 			},
 		]
@@ -250,42 +290,52 @@ export const posts = [
 		content: [
 			{
 				img: istanbul1,
+				alt: "",
 				width: 'full',
 			},
 			{
 				img: istanbul2,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: istanbul3,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: istanbul4,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: istanbul9,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: istanbul5,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: istanbul6,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: istanbul7,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: istanbul10,
+				alt: "",
 				width: 'half',
 			},
 			{
 				img: istanbul8,
+				alt: "",
 				width: 'full',
 			},
 		]
