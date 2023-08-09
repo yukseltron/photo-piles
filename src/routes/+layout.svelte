@@ -8,19 +8,10 @@
 
 <slot />
 
-<footer>
-    <a rel="external" href="https://www.yooksel.com/">@yooksel</a>
-</footer>
-
 <style>
     nav {
+        width: 100%;;
         display: flex;
         justify-content: space-between;
-    }
-
-    footer {
-        position: absolute;
-        left: 50%;
-        bottom: 0;
     }
 </style>

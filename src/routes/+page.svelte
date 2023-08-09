@@ -38,22 +38,23 @@
 <style>
     .handler {
         position: absolute;
-        width: 900px;
-        height: 500px;
-        background-position: -10% 75%;
-        background-repeat: no-repeat;
+        height: 80vh;
+        width: 50%;
+        background-size: cover;
+        background-position: center;
+        right: 0;
         z-index: -500;
+        overflow: hidden;
     }
-    ul {
-		padding: 0;
-		list-style-type: none;
-		margin: 0;
-	}
+
+    div {
+        margin-bottom: 25px;
+    }
 
     a {
         font-size: 3rem;
         color: var(--foreground);
-        mix-blend-mode: difference;
         font-weight: 200;
+        line-height: 3rem;
     }
 </style>

@@ -18,8 +18,8 @@
 		•
 		{:then}
 			<PhotoCard>
-				<div style="pointer-events: none; width: 100%; height: 100%;">
-					<img src={photo.img} alt="Photo" />
+				<div style="pointer-events: none; max-width: 100%; object-fit: contain;">
+					<img src={photo.img} alt={photo.alt} style="width:100%; height:100%;"/>
 				</div>
 			</PhotoCard>
 		{/await}

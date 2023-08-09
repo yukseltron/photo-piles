@@ -4,8 +4,8 @@
 
     let deg = Math.random() * 360;
     let rotation = deg;
-    let width = "500px";
-    let height = "600px";
+    let width = "30%";
+    let height = "50%";
     let x = 0;
     let y = 0;
     let isDragging = false;
@@ -29,8 +29,6 @@
         isDragging = true;
         offsetX = event.clientX - x;
         offsetY = event.clientY - y;
-        incrementHighestZIndex();
-        zIndex = $highestZIndex;
     }
 
     function handleMouseMove(event) {
@@ -38,9 +36,12 @@
             x = event.clientX - offsetX;
             y = event.clientY - offsetY;
         }
-        const closerValue = value => (Math.abs(value - 0) < Math.abs(value - 360)) ? 0 : 360;
 
+        const closerValue = value => (Math.abs(value - 0) < Math.abs(value - 360)) ? 0 : 360;
         rotation = closerValue(deg);
+
+        incrementHighestZIndex();
+        zIndex = $highestZIndex;
     }
 
     function handleMouseUp() {
@@ -69,8 +70,7 @@
         handleMouseUp();
     }
     
-    function handleTap() {
-        console.log('click');
+    function handleExpand() {
         const now = Date.now();
         if (now - lastTapTime < 300) {
             clearTimeout(tapTimeout);
@@ -79,11 +79,11 @@
                 isExpanded = true;
                 originalWidth = width;
                 originalHeight = height;
-                width = "800px";
-                height = "900px";
+                width = "100%";
+                height = "100%";
                 // Center the image
-                x = (window.innerWidth - parseInt(width)) / 2;
-                y = (window.innerHeight - parseInt(height)) / 2;
+                x = window.innerWidth / 4;
+                y = 0;
             } else {
                 isExpanded = false;
                 width = originalWidth;
@@ -98,7 +98,7 @@
     }
 </script>
   
-<div
+<button
     class="photocard"
     style="
         position: absolute; 
@@ -110,6 +110,7 @@
         top: {y}px; 
         transform: rotate({rotation}deg ); 
         z-index: {zIndex};
+        overflow: auto;
     "
     on:mousedown={handleMouseDown}
     on:mousemove={handleMouseMove}
@@ -118,16 +119,27 @@
     on:touchstart={handleTouchStart}
     on:touchmove={handleTouchMove}
     on:touchend={handleTouchEnd}
-    on:click={handleTap}
+    on:click={handleExpand}
+    on:focus={handleMouseMove}
+    on:focusout={handleMouseUp}
+    tabindex="0"
     >
     <slot></slot>
-</div>
+</button>
   
 <style>
+
+    button {
+        border: none;
+        background: none;
+    }
     .photocard {
         transform-origin: center;
         transition: transform 1s;
         cursor: grab;
+    }
+    .photocard:focus {
+        outline: none;
     }
     .photocard:active {
         cursor: grabbing;
