@@ -31,6 +31,7 @@ body {
   max-width: 900px;
   overflow-x: hidden;
   margin: 0px 25px;
+  overscroll-behavior: none;
 }
 
 main {
