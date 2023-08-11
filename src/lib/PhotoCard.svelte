@@ -63,6 +63,7 @@
     function handleTouchMove(event) {
         if (event.touches.length === 1) {
             handleMouseMove(event.touches[0]);
+            event.preventDefault();
         }
     }
 
