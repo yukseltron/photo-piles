@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { highestZIndex, incrementHighestZIndex } from "./store/store.js";
+    import { highestZIndex, incrementHighestZIndex } from "../store/store.js";
 
     let deg = Math.random() * 360;
     let rotation = deg;

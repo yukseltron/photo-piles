@@ -7,6 +7,7 @@
     import img6 from '$lib/assets/istanbul/9.jpeg';
     import img7 from '$lib/assets/losangeles/2.jpeg';
     import img8 from '$lib/assets/losangeles/6.jpeg';
+    import { scale, fade } from 'svelte/transition';
 
     export let data;
 
@@ -23,7 +24,7 @@
 
 <br/>
 <br/>
-<div class="handler" 
+<div in:scale class="handler" 
     style="
         background-image: url({images[num]});
     "
