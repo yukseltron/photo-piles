@@ -1,7 +1,6 @@
 <script>
 	import PhotoCard from '$lib/components/PhotoCard.svelte';
-	import { lazyLoad } from '$lib/utility/lazyLoad.js';
-	import { fade, blur, scale } from 'svelte/transition';
+	import { scale } from 'svelte/transition';
 
 	export let data;
 	let currentIndex = 250;
@@ -20,15 +19,20 @@
 			<div style="pointer-events: none; max-width: 100%; object-fit: contain;">
 				{#await renderNextComponent()}
 					<div style="
-						width: 100px;
-						height: 100px;
-						border: 2px solid var(--foreground);
+						width: 50px;
+						height: 50px;
 						border-radius: 50%;
-						background-color: var(--background);
-					" transition:scale>
+						background-color: {photo.color};
+					" in:scale>
 					</div>
 				{:then}
-					<img transition:scale use:lazyLoad={photo.img} alt={photo.alt} style="width:100%; height:100%; transition: all 1s;"/>
+					<img 
+						in:scale 
+						src={photo.img} 
+						alt={photo.alt} 
+						style="width:100%; height:100%; transition: all 1s;"
+						on:load={() => renderNextComponent()} 
+					/>
 				{/await}
 			</div>
 

@@ -100,7 +100,7 @@
 </script>
   
 <button
-    class="photocard lazy"
+    class="photocard"
     style="
         position: absolute; 
         width: fit-content;
