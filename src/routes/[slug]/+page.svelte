@@ -1,5 +1,6 @@
 <script>
-	import PhotoCard from '$lib/PhotoCard.svelte';
+	import PhotoCard from '$lib/components/PhotoCard.svelte';
+	import { scale } from 'svelte/transition';
 
 	export let data;
 	let currentIndex = 250;
@@ -14,14 +15,27 @@
 <h2>{data.post.subtitle}</h2>
 <div>
 	{#each data.post.content as photo, i}
-		{#await renderNextComponent()}
-		•
-		{:then}
-			<PhotoCard>
-				<div style="pointer-events: none; max-width: 100%; object-fit: contain;">
-					<img src={photo.img} alt={photo.alt} style="width:100%; height:100%;"/>
-				</div>
-			</PhotoCard>
-		{/await}
+		<PhotoCard>
+			<div style="pointer-events: none; max-width: 100%; object-fit: contain;">
+				{#await renderNextComponent()}
+					<div style="
+						width: 50px;
+						height: 50px;
+						border-radius: 50%;
+						background-color: {photo.color};
+					" in:scale>
+					</div>
+				{:then}
+					<img 
+						in:scale 
+						src={photo.img} 
+						alt={photo.alt} 
+						style="width:100%; height:100%; transition: all 1s;"
+						on:load={() => renderNextComponent()} 
+					/>
+				{/await}
+			</div>
+
+		</PhotoCard>
 	{/each}
 </div>
