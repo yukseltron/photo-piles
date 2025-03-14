@@ -390,4 +390,340 @@ export const posts = [
 			},
 		]
 	},
+	{
+		slug: 'paris',
+		title: 'Paris',
+		subtitle: 'France',
+		content: [
+			{
+				img: istanbul1,
+				alt: "",
+				width: 'full',
+				color: '#DF367C',
+			},
+			{
+				img: istanbul2,
+				alt: "",
+				width: 'half',
+				color: '#883955',
+			},
+			{
+				img: istanbul3,
+				alt: "",
+				width: 'half',
+				color: '#FF3E41',
+			},
+			{
+				img: istanbul4,
+				alt: "",
+				width: 'half',
+				color: '#FF4D80',
+			},
+			{
+				img: istanbul9,
+				alt: "",
+				width: 'half',
+				color: '#73C2BE',
+			},
+			{
+				img: istanbul5,
+				alt: "",
+				width: 'half',
+				color: '#73EEDC',
+			},
+			{
+				img: istanbul6,
+				alt: "",
+				width: 'half',
+				color: '#BEA8AA',
+			},
+			{
+				img: istanbul7,
+				alt: "",
+				width: 'half',
+				color: '#9E9885',
+			},
+			{
+				img: istanbul10,
+				alt: "",
+				width: 'half',
+				color: '#CFC7D2',
+			},
+			{
+				img: istanbul8,
+				alt: "",
+				width: 'full',
+				color: '#7C7F65',
+			},
+		]
+	},
+	{
+		slug: 'barcelona',
+		title: 'Barcelona',
+		subtitle: 'Spain',
+		content: [
+			{
+				img: istanbul1,
+				alt: "",
+				width: 'full',
+				color: '#DF367C',
+			},
+			{
+				img: istanbul2,
+				alt: "",
+				width: 'half',
+				color: '#883955',
+			},
+			{
+				img: istanbul3,
+				alt: "",
+				width: 'half',
+				color: '#FF3E41',
+			},
+			{
+				img: istanbul4,
+				alt: "",
+				width: 'half',
+				color: '#FF4D80',
+			},
+			{
+				img: istanbul9,
+				alt: "",
+				width: 'half',
+				color: '#73C2BE',
+			},
+			{
+				img: istanbul5,
+				alt: "",
+				width: 'half',
+				color: '#73EEDC',
+			},
+			{
+				img: istanbul6,
+				alt: "",
+				width: 'half',
+				color: '#BEA8AA',
+			},
+			{
+				img: istanbul7,
+				alt: "",
+				width: 'half',
+				color: '#9E9885',
+			},
+			{
+				img: istanbul10,
+				alt: "",
+				width: 'half',
+				color: '#CFC7D2',
+			},
+			{
+				img: istanbul8,
+				alt: "",
+				width: 'full',
+				color: '#7C7F65',
+			},
+		]
+	},
+	{
+		slug: 'granada',
+		title: 'Granada',
+		subtitle: 'Spain',
+		content: [
+			{
+				img: istanbul1,
+				alt: "",
+				width: 'full',
+				color: '#DF367C',
+			},
+			{
+				img: istanbul2,
+				alt: "",
+				width: 'half',
+				color: '#883955',
+			},
+			{
+				img: istanbul3,
+				alt: "",
+				width: 'half',
+				color: '#FF3E41',
+			},
+			{
+				img: istanbul4,
+				alt: "",
+				width: 'half',
+				color: '#FF4D80',
+			},
+			{
+				img: istanbul9,
+				alt: "",
+				width: 'half',
+				color: '#73C2BE',
+			},
+			{
+				img: istanbul5,
+				alt: "",
+				width: 'half',
+				color: '#73EEDC',
+			},
+			{
+				img: istanbul6,
+				alt: "",
+				width: 'half',
+				color: '#BEA8AA',
+			},
+			{
+				img: istanbul7,
+				alt: "",
+				width: 'half',
+				color: '#9E9885',
+			},
+			{
+				img: istanbul10,
+				alt: "",
+				width: 'half',
+				color: '#CFC7D2',
+			},
+			{
+				img: istanbul8,
+				alt: "",
+				width: 'full',
+				color: '#7C7F65',
+			},
+		]
+	},
+	{
+		slug: 'sevilla',
+		title: 'Sevilla',
+		subtitle: 'Spain',
+		content: [
+			{
+				img: istanbul1,
+				alt: "",
+				width: 'full',
+				color: '#DF367C',
+			},
+			{
+				img: istanbul2,
+				alt: "",
+				width: 'half',
+				color: '#883955',
+			},
+			{
+				img: istanbul3,
+				alt: "",
+				width: 'half',
+				color: '#FF3E41',
+			},
+			{
+				img: istanbul4,
+				alt: "",
+				width: 'half',
+				color: '#FF4D80',
+			},
+			{
+				img: istanbul9,
+				alt: "",
+				width: 'half',
+				color: '#73C2BE',
+			},
+			{
+				img: istanbul5,
+				alt: "",
+				width: 'half',
+				color: '#73EEDC',
+			},
+			{
+				img: istanbul6,
+				alt: "",
+				width: 'half',
+				color: '#BEA8AA',
+			},
+			{
+				img: istanbul7,
+				alt: "",
+				width: 'half',
+				color: '#9E9885',
+			},
+			{
+				img: istanbul10,
+				alt: "",
+				width: 'half',
+				color: '#CFC7D2',
+			},
+			{
+				img: istanbul8,
+				alt: "",
+				width: 'full',
+				color: '#7C7F65',
+			},
+		]
+	},
+	{
+		slug: 'bogota',
+		title: 'Bogota',
+		subtitle: 'Colombia',
+		content: [
+			{
+				img: istanbul1,
+				alt: "",
+				width: 'full',
+				color: '#DF367C',
+			},
+			{
+				img: istanbul2,
+				alt: "",
+				width: 'half',
+				color: '#883955',
+			},
+			{
+				img: istanbul3,
+				alt: "",
+				width: 'half',
+				color: '#FF3E41',
+			},
+			{
+				img: istanbul4,
+				alt: "",
+				width: 'half',
+				color: '#FF4D80',
+			},
+			{
+				img: istanbul9,
+				alt: "",
+				width: 'half',
+				color: '#73C2BE',
+			},
+			{
+				img: istanbul5,
+				alt: "",
+				width: 'half',
+				color: '#73EEDC',
+			},
+			{
+				img: istanbul6,
+				alt: "",
+				width: 'half',
+				color: '#BEA8AA',
+			},
+			{
+				img: istanbul7,
+				alt: "",
+				width: 'half',
+				color: '#9E9885',
+			},
+			{
+				img: istanbul10,
+				alt: "",
+				width: 'half',
+				color: '#CFC7D2',
+			},
+			{
+				img: istanbul8,
+				alt: "",
+				width: 'full',
+				color: '#7C7F65',
+			},
+		]
+	},
+	
 ];
