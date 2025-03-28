@@ -13,7 +13,7 @@
 
 <h1>{data.post.title}</h1>
 <h2>{data.post.subtitle}</h2>
-<div>
+<div class="container">
 	{#each data.post.content as photo, i}
 		<PhotoCard>
 			<div style="pointer-events: none; max-width: 100%; object-fit: contain;">

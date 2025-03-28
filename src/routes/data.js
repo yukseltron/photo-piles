@@ -52,6 +52,7 @@ import nyc7 from '$lib/assets/nyc/7.jpeg';
 import nyc8 from '$lib/assets/nyc/8.jpeg';
 import nyc9 from '$lib/assets/nyc/9.jpeg';
 import nyc10 from '$lib/assets/nyc/10.jpeg';
+import { text } from 'svelte/internal';
 
 
 export const posts = [
@@ -65,30 +66,35 @@ export const posts = [
 				alt: "An apartment staircase with square tiling and yellow beams. A tree branch can be seen in the bottom-right corner.",
 				width: 'half',
 				color: 'vermilion',
+				text: 'An apartment staircase with square tiling and yellow beams. A tree branch can be seen in the bottom-right corner.',
 			},
 			{
 				img: tokyo2,
 				alt: "A turquoise metallic spiral staircase. Rain drops can be seen dripping down the railing.",
 				width: 'half',
 				color: 'turquoise',
+				text: 'A turquoise metallic spiral staircase. Rain drops can be seen dripping down the railing.',
 			},
 			{
 				img: tokyo3,
 				alt: "A rusting light pole with large convex mirrors on either side. A tree and large green fencing rests behind it.",
 				width: 'full',
 				color: 'green',
+				text: 'A rusting light pole with large convex mirrors on either side. A tree and large green fencing rests behind it.',
 			},
 			{
 				img: tokyo4,
 				alt: "",
 				width: 'full',
 				color: 'violet',
+				text: 'A rusting light pole with large convex mirrors on either side. A tree and large green fencing rests behind it.',
 			},
 			{
 				img: tokyo5,
 				alt: "",
 				width: 'full',
 				color: 'orange',
+				text: 'A rusting light pole with large convex mirrors on either side. A tree and large green fencing rests behind it.',
 			},
 			{
 				img: tokyo6,

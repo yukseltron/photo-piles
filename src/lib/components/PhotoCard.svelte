@@ -111,7 +111,6 @@
         top: {y}px; 
         transform: rotate({rotation}deg ); 
         z-index: {zIndex};
-        overflow: auto;
     "
     on:mousedown={handleMouseDown}
     on:mousemove={handleMouseMove}
@@ -141,12 +140,14 @@
     }
     .photocard:focus {
         outline: none;
+        filter: drop-shadow(0 0 0.75rem var(--foreground));
     }
     .photocard:active {
         cursor: grabbing;
     }
     .photocard:hover {
         z-index: 2;
+        filter: drop-shadow(0 0 0.75rem var(--foreground));
     }
 </style>
   
