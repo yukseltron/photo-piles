@@ -1,38 +1,23 @@
 <script>
-    import img1 from '$lib/assets/tokyo/tokyo2.png';
-    import img2 from '$lib/assets/tokyo/tokyo3.png';
-    import img3 from '$lib/assets/seattle/2.jpeg';
-    import img4 from '$lib/assets/seattle/8.jpeg';
-    import img5 from '$lib/assets/istanbul/7.jpeg';
-    import img6 from '$lib/assets/istanbul/9.jpeg';
-    import img7 from '$lib/assets/losangeles/2.jpeg';
-    import img8 from '$lib/assets/losangeles/6.jpeg';
-    import { scale, fade } from 'svelte/transition';
+    import { scale } from 'svelte/transition';
 
     export let data;
 
-    const images = [img1, img2, img3, img4, img5, img6, img7, img8]
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+    let bgImage = data.summaries.find(s => s.cover)?.cover ?? '';
+
+    function setBackground(cover) {
+        if (cover) bgImage = cover;
     }
-
-    const num = getRandomInt(1,8);
-
 </script>
 
-<br/>
-<br/>
-<div in:scale class="handler" 
-    style="
-        background-image: url({images[num]});
-    "
->
-</div>
-{#each data.summaries as { slug, title, }}
-    <div>
-        <a href="/{slug}">{title}</a>
+<div in:scale class="handler" style="background-image: url({bgImage})"></div>
+
+{#each data.summaries as { slug, title, count, cover }}
+    <div class="entry">
+        <a href="/{slug}" on:mouseenter={() => setBackground(cover)}>
+            {title}
+        </a>
+        {#if count > 0}<span class="count">{count}</span>{/if}
     </div>
 {/each}
 
@@ -46,16 +31,27 @@
         right: 0;
         z-index: -500;
         overflow: hidden;
+        transition: background-image 0.4s ease;
     }
 
-    div {
-        margin-bottom: 25px;
+    .entry {
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        margin-bottom: 0.5rem;
     }
 
     a {
-        font-size: 3rem;
+        font-size: 2rem;
         color: var(--foreground);
         font-weight: 200;
         line-height: 3rem;
+    }
+
+    .count {
+        font-size: 0.6rem;
+        font-weight: 400;
+        opacity: 0.35;
+        letter-spacing: 0.05em;
     }
 </style>

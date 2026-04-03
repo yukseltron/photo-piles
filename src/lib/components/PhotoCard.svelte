@@ -1,152 +1,150 @@
 <script>
-    import { onMount } from "svelte";
+    import { onMount, onDestroy } from "svelte";
     import { highestZIndex, incrementHighestZIndex } from "../store/store.js";
 
-    let deg = Math.random() * 360;
-    let rotation = deg;
-    let width = "30%";
-    let height = "50%";
+    export let maxY = undefined;
+
+    const BASE_WIDTH = 280;
+    const EXPANDED_WIDTH = 560;
+
+    let width = BASE_WIDTH;
     let x = 0;
     let y = 0;
+    let rotation = (Math.random() * 20) - 10;
     let isDragging = false;
     let zIndex = 1;
-    let offsetX = 0;
-    let offsetY = 0;
-    
-    // Double-tap handling
+
+    // Delta-based drag — immune to coordinate system mismatches
+    let startMouseX = 0;
+    let startMouseY = 0;
+    let startCardX = 0;
+    let startCardY = 0;
+
+    // Double-tap
     let lastTapTime = 0;
-    let tapTimeout;
     let isExpanded = false;
-    let originalWidth;
-    let originalHeight;
 
     onMount(() => {
-        x = Math.random() * (window.innerWidth - 400);
-        y = Math.random() * (window.innerHeight - 400);
+        x = Math.random() * Math.max(0, window.innerWidth - BASE_WIDTH - 60);
+        const yRange = (maxY ?? window.innerHeight) - 200;
+        y = Math.random() * Math.max(0, yRange);
     });
 
-    function handleMouseDown(event) {
-        isDragging = true;
-        offsetX = event.clientX - x;
-        offsetY = event.clientY - y;
+    onDestroy(() => {
+        window.removeEventListener('mousemove', onWindowMouseMove);
+        window.removeEventListener('mouseup', onWindowMouseUp);
+    });
+
+    function onWindowMouseMove(event) {
+        x = startCardX + (event.clientX - startMouseX);
+        y = startCardY + (event.clientY - startMouseY);
     }
 
-    function handleMouseMove(event) {
-        if (isDragging) {
-            x = event.clientX - offsetX;
-            y = event.clientY - offsetY;
-        }
+    function onWindowMouseUp() {
+        isDragging = false;
+        window.removeEventListener('mousemove', onWindowMouseMove);
+        window.removeEventListener('mouseup', onWindowMouseUp);
+    }
 
-        const closerValue = value => (Math.abs(value - 0) < Math.abs(value - 360)) ? 0 : 360;
-        rotation = closerValue(deg);
+    function handleMouseDown(event) {
+        event.preventDefault();
+        isDragging = true;
+        startMouseX = event.clientX;
+        startMouseY = event.clientY;
+        startCardX = x;
+        startCardY = y;
+        incrementHighestZIndex();
+        zIndex = $highestZIndex;
+        window.addEventListener('mousemove', onWindowMouseMove);
+        window.addEventListener('mouseup', onWindowMouseUp);
+    }
 
+    function handleMouseEnter() {
+        if (!isDragging) rotation = 0;
+    }
+
+    function handleMouseLeave() {
+        if (!isDragging) rotation = (Math.random() * 20) - 10;
+    }
+
+    function handleTouchStart(event) {
+        const touch = event.touches[0];
+        isDragging = true;
+        startMouseX = touch.clientX;
+        startMouseY = touch.clientY;
+        startCardX = x;
+        startCardY = y;
         incrementHighestZIndex();
         zIndex = $highestZIndex;
     }
 
-    function handleMouseUp() {
-        isDragging = false;
-    }
-
-    function handleMouseLeave() {
-        isDragging = false;
-        const randomNum = (Math.random() * 90) - 45;
-        rotation += randomNum;
-    }
-    
-    function handleTouchStart(event) {
-        if (event.touches.length === 1) {
-            handleMouseDown(event.touches[0]);
-        }
-    }
-
     function handleTouchMove(event) {
-        if (event.touches.length === 1) {
-            handleMouseMove(event.touches[0]);
-            event.preventDefault();
-        }
+        event.preventDefault();
+        const touch = event.touches[0];
+        x = startCardX + (touch.clientX - startMouseX);
+        y = startCardY + (touch.clientY - startMouseY);
     }
 
     function handleTouchEnd() {
-        handleMouseUp();
+        isDragging = false;
     }
-    
-    function handleExpand() {
+
+    function handleClick() {
         const now = Date.now();
         if (now - lastTapTime < 300) {
-            clearTimeout(tapTimeout);
-
-            if (!isExpanded) {
-                isExpanded = true;
-                originalWidth = width;
-                originalHeight = height;
-                width = "100%";
-                height = "100%";
-                // Center the image
-                x = window.innerWidth / 4;
-                y = 0;
-            } else {
-                isExpanded = false;
-                width = originalWidth;
-                height = originalHeight;
+            isExpanded = !isExpanded;
+            width = isExpanded ? EXPANDED_WIDTH : BASE_WIDTH;
+            if (isExpanded) {
+                x = Math.max(20, (window.innerWidth - EXPANDED_WIDTH) / 2);
+                y = window.scrollY + 40;
             }
-        } else {
-            lastTapTime = now;
-            tapTimeout = setTimeout(() => {
-                clearTimeout(tapTimeout);
-            }, 300);
         }
+        lastTapTime = now;
     }
 </script>
-  
+
 <button
     class="photocard"
+    class:dragging={isDragging}
     style="
-        position: absolute; 
-        width: fit-content;
-        min-width: 100px;
-        max-width: {width}; 
-        max-height: {height};
-        left: {x}px; 
-        top: {y}px; 
-        transform: rotate({rotation}deg ); 
+        position: absolute;
+        width: {width}px;
+        transform: translate({x}px, {y}px) rotate({rotation}deg);
         z-index: {zIndex};
-        overflow: auto;
     "
     on:mousedown={handleMouseDown}
-    on:mousemove={handleMouseMove}
-    on:mouseup={handleMouseUp}
+    on:mouseenter={handleMouseEnter}
     on:mouseleave={handleMouseLeave}
     on:touchstart={handleTouchStart}
     on:touchmove={handleTouchMove}
     on:touchend={handleTouchEnd}
-    on:click={handleExpand}
-    on:focus={handleMouseMove}
-    on:focusout={handleMouseUp}
+    on:click={handleClick}
     tabindex="0"
-    >
+>
     <slot></slot>
 </button>
-  
-<style>
 
+<style>
     button {
         border: none;
         background: none;
-    }
-    .photocard {
-        transform-origin: center;
-        transition: transform 1s;
+        padding: 0;
+        overflow: hidden;
+        transform-origin: top left;
+        transition: transform 0.5s ease, box-shadow 0.2s ease;
         cursor: grab;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: none;
     }
-    .photocard:focus {
+
+    button.dragging {
+        transition: box-shadow 0.2s ease;
+        cursor: grabbing;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    button:focus {
         outline: none;
     }
-    .photocard:active {
-        cursor: grabbing;
-    }
-    .photocard:hover {
-        z-index: 2;
-    }
 </style>
-  
