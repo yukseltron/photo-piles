@@ -144,6 +144,10 @@
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
     }
 
+    button:hover {
+        outline: 1px solid rgba(128, 128, 128, 0.35);
+    }
+
     button:focus {
         outline: none;
     }
