@@ -36,9 +36,13 @@
         window.removeEventListener('mouseup', onWindowMouseUp);
     });
 
+    function clamp(val, min, max) {
+        return Math.min(max, Math.max(min, val));
+    }
+
     function onWindowMouseMove(event) {
-        x = startCardX + (event.clientX - startMouseX);
-        y = startCardY + (event.clientY - startMouseY);
+        x = clamp(startCardX + (event.clientX - startMouseX), 0, window.innerWidth - width);
+        y = clamp(startCardY + (event.clientY - startMouseY), 0, (maxY ?? window.innerHeight) - 100);
     }
 
     function onWindowMouseUp() {
@@ -82,8 +86,8 @@
     function handleTouchMove(event) {
         event.preventDefault();
         const touch = event.touches[0];
-        x = startCardX + (touch.clientX - startMouseX);
-        y = startCardY + (touch.clientY - startMouseY);
+        x = clamp(startCardX + (touch.clientX - startMouseX), 0, window.innerWidth - width);
+        y = clamp(startCardY + (touch.clientY - startMouseY), 0, (maxY ?? window.innerHeight) - 100);
     }
 
     function handleTouchEnd() {
@@ -143,10 +147,6 @@
         transition: box-shadow 0.2s ease;
         cursor: grabbing;
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-    }
-
-    button:hover {
-        outline: 1px solid rgba(128, 128, 128, 0.35);
     }
 
     button:focus {

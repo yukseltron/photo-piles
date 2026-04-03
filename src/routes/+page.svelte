@@ -9,7 +9,7 @@
     }
 </script>
 
-<div class="handler" style="background-image: url({bgImage})"></div>
+<div class="handler" style="background-image: url({bgImage}); margin: 0px 30px;"></div>
 
 {#each data.summaries as { slug, title, count, cover }}
     <div class="entry">
@@ -23,12 +23,18 @@
     .handler {
         position: absolute;
         height: 80vh;
-        width: 50%;
+        width: 70%;
         background-size: cover;
         background-position: center;
         right: 0;
         z-index: -500;
         overflow: hidden;
+    }
+
+    @media (max-width: 600px) {
+        .handler {
+            display: none;
+        }
     }
 
     .entry {

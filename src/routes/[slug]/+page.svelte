@@ -134,9 +134,19 @@
 	.page-header {
 		width: 100%;
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		justify-content: space-between;
 		margin-bottom: 1rem;
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+		background: var(--background);
+	}
+
+	.page-header h1 {
+		font-weight: 200;
+		font-size: 2.5rem;
+		line-height: 3.5rem;
 	}
 
 	.controls {
@@ -182,6 +192,18 @@
 		opacity: 0.4;
 		margin-left: 0.4em;
 		letter-spacing: 0.03em;
+	}
+
+	@media (max-width: 600px) {
+		.local-name {
+			display: none;
+		}
+		input[type="range"] {
+			display: none;
+		}
+		.grid-view {
+			columns: 1 !important;
+		}
 	}
 
 	/* Toggle button */
@@ -236,6 +258,7 @@
 	.pile-view {
 		position: relative;
 		width: 100%;
+		overflow: hidden;
 	}
 
 	.card-content {
