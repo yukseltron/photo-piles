@@ -4,7 +4,7 @@ import { join, extname, basename } from 'path';
 
 const countries = [
 	'japan', 'usa', 'turkiye', 'brazil', 'colombia',
-	'france', 'italy', 'korea', 'mexico', 'philippines', 'spain'
+	'france', 'italy', 'korea', 'mexico', 'philippines', 'spain', 'canada'
 ];
 
 let converted = 0;

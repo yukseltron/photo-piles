@@ -1,6 +1,4 @@
 <script>
-    import { scale } from 'svelte/transition';
-
     export let data;
 
     let bgImage = data.summaries.find(s => s.cover)?.cover ?? '';
@@ -10,7 +8,7 @@
     }
 </script>
 
-<div in:scale class="handler" style="background-image: url({bgImage})"></div>
+<div class="handler" style="background-image: url({bgImage})"></div>
 
 {#each data.summaries as { slug, title, count, cover }}
     <div class="entry">
@@ -31,7 +29,6 @@
         right: 0;
         z-index: -500;
         overflow: hidden;
-        transition: background-image 0.4s ease;
     }
 
     .entry {

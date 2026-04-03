@@ -2,7 +2,7 @@
     import '../app.css'
 </script>
 <nav>
-	<a href="/">Photos</a>
+	<a href="/">Photo Piles</a>
     <a href="/about">About</a>
 </nav>
 
