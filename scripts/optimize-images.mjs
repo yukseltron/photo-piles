@@ -21,6 +21,7 @@ for (const country of countries) {
 
 		try {
 			await sharp(srcPath)
+				.rotate()
 				.resize({ width: 1200, withoutEnlargement: true })
 				.webp({ quality: 82 })
 				.toFile(outPath);
