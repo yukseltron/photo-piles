@@ -31,6 +31,7 @@
     });
 
     onDestroy(() => {
+        if (typeof window === 'undefined') return;
         window.removeEventListener('mousemove', onWindowMouseMove);
         window.removeEventListener('mouseup', onWindowMouseUp);
     });
