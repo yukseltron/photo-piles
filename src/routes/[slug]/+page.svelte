@@ -5,7 +5,7 @@
 
 	export let data;
 
-	let isGrid = true;
+	let isGrid = false;
 	const pileHeight = Math.ceil(data.images.length / 4) * 350;
 
 	// Track which pile images have finished loading

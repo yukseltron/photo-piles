@@ -6,4 +6,9 @@
     a {
         color: rgb(111, 111, 251);
     }
+
+    p {
+        font-weight: 200;
+        font-size: 1.5rem;
+    }
 </style>

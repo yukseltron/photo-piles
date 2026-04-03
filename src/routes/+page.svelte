@@ -1,7 +1,8 @@
 <script>
     export let data;
 
-    let bgImage = data.summaries.find(s => s.cover)?.cover ?? '';
+    const covers = data.summaries.filter(s => s.cover).map(s => s.cover);
+    let bgImage = covers[Math.floor(Math.random() * covers.length)] ?? '';
 
     function setBackground(cover) {
         if (cover) bgImage = cover;
@@ -15,7 +16,6 @@
         <a href="/{slug}" on:mouseenter={() => setBackground(cover)}>
             {title}
         </a>
-        {#if count > 0}<span class="count">{count}</span>{/if}
     </div>
 {/each}
 
@@ -43,12 +43,5 @@
         color: var(--foreground);
         font-weight: 200;
         line-height: 3rem;
-    }
-
-    .count {
-        font-size: 0.6rem;
-        font-weight: 400;
-        opacity: 0.35;
-        letter-spacing: 0.05em;
     }
 </style>
