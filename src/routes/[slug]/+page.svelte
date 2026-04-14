@@ -5,6 +5,17 @@
 
 	export let data;
 
+	function shuffle(arr) {
+		const a = [...arr];
+		for (let i = a.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[a[i], a[j]] = [a[j], a[i]];
+		}
+		return a;
+	}
+
+	const gridImages = shuffle(data.images);
+
 	let isGrid = false;
 	const pileHeight = Math.ceil(data.images.length / 4) * 350;
 
@@ -101,7 +112,7 @@
 	bind:this={gridEl}
 	style="columns: {columnWidth}px;"
 >
-	{#each data.images as img}
+	{#each gridImages as img}
 		<img src={img} alt="" loading="lazy" />
 	{/each}
 </div>
