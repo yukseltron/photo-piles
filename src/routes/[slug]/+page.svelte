@@ -1,5 +1,6 @@
 <script>
 	import PhotoCard from '$lib/components/PhotoCard.svelte';
+	import PhotoViewer from '$lib/components/PhotoViewer.svelte';
 	import { scale } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
 
@@ -17,18 +18,43 @@
 	const gridImages = shuffle(data.images);
 
 	let isGrid = false;
+	let headerHeight = 0;
 	const pileHeight = Math.ceil(data.images.length / 4) * 350;
 
 	// Track which pile images have finished loading
 	let loadedSet = new Set();
-	function onLoad(i) {
+	/** @type {Record<number, number>} */
+	let aspectRatios = {};
+	function onLoad(i, img) {
+		const { naturalWidth, naturalHeight } = img;
+		if (naturalHeight) aspectRatios[i] = naturalWidth / naturalHeight;
 		loadedSet.add(i);
 		loadedSet = loadedSet;
+	}
+
+	// Cached images can finish loading before hydration, so check `complete` too
+	function trackLoad(img, i) {
+		const done = () => onLoad(i, img);
+		if (img.complete && img.naturalHeight) done();
+		else img.addEventListener('load', done);
+		return { destroy: () => img.removeEventListener('load', done) };
 	}
 
 	function toggleView() {
 		isGrid = !isGrid;
 		loadedSet = new Set();
+		viewing = null;
+	}
+
+	const noteFor = (img) => data.notes[img.split('/').pop()];
+
+	// Grid: double-click / double-tap a photo to open it with its note
+	let viewing = null;
+	let lastGridTap = { img: null, time: 0 };
+	function handleGridClick(img) {
+		const now = Date.now();
+		if (lastGridTap.img === img && now - lastGridTap.time < 300) viewing = img;
+		lastGridTap = { img, time: now };
 	}
 
 	// Grid zoom via pinch / ctrl+scroll
@@ -82,7 +108,7 @@
 	});
 </script>
 
-<div class="page-header">
+<div class="page-header" bind:clientHeight={headerHeight}>
 	<h1>
 		{data.country.title}{#if data.country.localName && data.country.localName !== data.country.title}<span class="local-name">{data.country.localName}</span>{/if}
 	</h1>
@@ -113,14 +139,19 @@
 	style="columns: {columnWidth}px;"
 >
 	{#each gridImages as img}
-		<img src={img} alt="" loading="lazy" />
+		<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
+		<img src={img} alt="" loading="lazy" on:click={() => handleGridClick(img)} />
 	{/each}
 </div>
+
+{#if viewing}
+	<PhotoViewer src={viewing} note={noteFor(viewing)} topInset={headerHeight} on:close={() => (viewing = null)} />
+{/if}
 
 {#if !isGrid}
 	<div class="pile-view" style="height: {pileHeight}px;">
 		{#each data.images as img, i}
-			<PhotoCard maxY={pileHeight}>
+			<PhotoCard maxY={pileHeight} aspectRatio={aspectRatios[i]} topInset={headerHeight} note={noteFor(img)}>
 				<div class="card-content" style="pointer-events: none;">
 					<div
 						class="placeholder"
@@ -132,7 +163,7 @@
 						src={img}
 						alt=""
 						loading="lazy"
-						on:load={() => onLoad(i)}
+						use:trackLoad={i}
 						class:visible={loadedSet.has(i)}
 					/>
 				</div>
@@ -260,6 +291,7 @@
 	}
 	.grid-view img {
 		width: 100%;
+		cursor: zoom-in;
 		display: block;
 		margin-bottom: 8px;
 		break-inside: avoid;

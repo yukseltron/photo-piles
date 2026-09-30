@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { countries } from '../data.js';
+import { notes } from '../notes.js';
 import { readdirSync } from 'fs';
 import { resolve } from 'path';
 
@@ -13,6 +14,7 @@ export function load({ params }) {
 
 	return {
 		country,
-		images: files.map(f => `/images/${params.slug}/${f}`)
+		images: files.map(f => `/images/${params.slug}/${f}`),
+		notes: notes[params.slug] ?? {}
 	};
 }
